@@ -1,5 +1,6 @@
 import Navbar from './components/navbar/Navbar'
 import './App.css'
+import PriceOptions from './components/priceOptions/PriceOptions'
 
 
 function App() {
@@ -8,10 +9,8 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      <div>
-        <h1>Hello World</h1>
-      </div>
-  
+      <PriceOptions></PriceOptions>
+      
   
 
 
