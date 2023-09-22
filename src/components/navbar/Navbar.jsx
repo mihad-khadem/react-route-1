@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Link from "../link/Link";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold} from 'react-icons/ai'
-import { flushSync } from "react-dom";
 
 const Navbar = () => {
 
@@ -15,18 +14,21 @@ const Navbar = () => {
         {id: 5, path: '*', name: 'Not Found'}
     ];
     return (
-        <nav>
-            <div className="md:hidden" onClick={() => setOpen(!open)}>
+        <nav className="bg-yellow-300 text-white p-4">
+            <div onClick={() => setOpen(!open)} className="text-3xl md:hidden">
                 {
-                    open === true ? <AiOutlineMenuUnfold className="text-3xl"></AiOutlineMenuUnfold> : <AiOutlineMenuFold className="text-3xl"></AiOutlineMenuFold>
+                    open === true ? <AiOutlineMenuFold></AiOutlineMenuFold> : <AiOutlineMenuUnfold></AiOutlineMenuUnfold>
                 }
-            
+                
+                
             </div>
-            <ul className="md:flex gap-4">
+            <ul className={`md:flex absolute duration-1000 bg-yellow-300 px-3 ${open ? 'top-15' : '-top-60'} md:static`}>
             {
-                routes.map(route => <Link key={route.id} route={route}></Link>)
+                routes.map(route => <Link key={route.id}route={route}></Link>)
             }
             </ul>
+
+
         </nav>
     )
 };
